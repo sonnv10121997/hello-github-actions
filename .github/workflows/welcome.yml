@@ -7,4 +7,4 @@ jobs:
     steps:
       - run: "echo expression value: $EXPRESSION"
         env:
-          EXPRESSION: ${{ contains(fromJSON('["Son", "Nguyen"]'), 'son') }}
+          EXPRESSION: ${{ fromJSON('["Son", "Nguyen"]')[true] }}
