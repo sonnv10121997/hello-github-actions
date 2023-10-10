@@ -1,15 +1,10 @@
-name: Post welcome comment
-on:
-  pull_request:
-    types: [opened]
-permissions:
-  pull-requests: write
+name: Test GitHub Actions
+on: pull_request
 jobs:
-  build:
-    name: Post welcome comment
+  test-expression:
+    name: Test GitHub Actions expressions
     runs-on: ubuntu-latest
     steps:
-      - run: gh pr comment $PR_URL --body "Welcome to the repository!"
+      - run: "echo expression value: $EXPRESSION"
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          PR_URL: ${{ github.event.pull_request.html_url }}
+          EXPRESSION: ${{ fromJSON('["Son", "Nguyen"]')[true] }}
