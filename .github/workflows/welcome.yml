@@ -1,5 +1,5 @@
 name: Test GitHub Actions
-on: pull_request
+on: push
 jobs:
   test-expression:
     name: Test GitHub Actions expressions
